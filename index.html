@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+		var app = new PIXI.Application(500,500);
+        document.body.appendChild(app.view);
+        
+        var bg = new PIXI.Sprite.fromImage("res/beijing.jpeg");
+        app.stage.addChild(bg);
+        
+        var text1 = new  PIXI.Text("Pokemon:PiKaQu");
+        app.stage.addChild(text1);
+        text1.x = 150;
+        text1.interactive = true;
+        text1.buttonMode = true;
+        
+        var pi = new PIXI.Sprite.fromImage("res/pikaqiu.jpeg");
+       	app.stage.addChild(pi);
+       	pi.width = 500;
+       	pi.height = 500;
+       	pi.visible = false;
+       	var tui = new PIXI.Sprite.fromImage("res/tuichu.png");
+       	app.stage.addChild(tui);
+       	tui.width = 50;
+       	tui.height = 50;
+       	tui.visible = false;
+       	tui.interactive = true;
+       	tui.buttonMode = true;
+        
+        
+        text1.on("click",newthing);
+        function newthing(){ 
+        	text1.visible = false;
+        	bg.visble = false;
+        	pi.visible = true;
+        	tui.visible = true;
+        }
+        tui.on("click",huiqu);
+        function huiqu(){
+        	pi.visible = false;
+        	tui.visible = false;
+        	text1.visible = true;
+        }
+        
+        
+    </script>
+</body>
+</html>
